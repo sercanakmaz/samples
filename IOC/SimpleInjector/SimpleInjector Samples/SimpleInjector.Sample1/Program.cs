@@ -74,6 +74,9 @@ namespace SimpleInjector.Sample1
 
                 invocation.ReturnValue = returnTypeInstance;
 
+                string title = invocation.InvocationTarget.GetType().Name + ":" + method.Name;
+
+                Console.WriteLine(title);
                 Console.WriteLine("Hata oluştu: {0}", ex.ToString());
                 Console.WriteLine("LogLevel: {0}", handleErrorAttribute.Level);
                 Console.WriteLine("Parametreler: {0}", JsonConvert.SerializeObject(parametersAsDictionary));
