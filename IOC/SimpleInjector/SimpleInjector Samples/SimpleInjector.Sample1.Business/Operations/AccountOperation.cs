@@ -7,20 +7,24 @@ using System.Threading.Tasks;
 
 namespace SimpleInjector.Sample1.Business.Operations
 {
-    public class AccountOperation: IAccountOperation
+    public class AccountOperation : IAccountOperation
     {
-        public LoginResult Login(string userName, string password)
+        public BusinessResultBase<LoginResult> Login(string userName, string password)
         {
             throw new NotImplementedException();
-            return new LoginResult
+            return new BusinessResultBase<LoginResult>
             {
-                FullName = "Sir John"
+                IsSucceed = true,
+                Data = new LoginResult
+                {
+                    FullName = "Sir John"
+                }
             };
         }
     }
-    public interface IAccountOperation: IBusinessOperation
+    public interface IAccountOperation : IBusinessOperation
     {
         [HandleError(LogLevel.Fatal)]
-        LoginResult Login(string userName, string password);
+        BusinessResultBase<LoginResult> Login(string userName, string password);
     }
 }

@@ -9,22 +9,27 @@ namespace SimpleInjector.Sample1.Business.Operations
 {
     public class FlightOperation : IFlightOperation
     {
-        public FlightResponse Search(FlightRequest request)
+        public BusinessResultBase<FlightResponse> Search(FlightRequest request)
         {
-            return new FlightResponse
+            throw new NotImplementedException();
+            return new BusinessResultBase<FlightResponse>
             {
-                Items = new List<FlightItem>
+                IsSucceed = true,
+                Data = new FlightResponse
                 {
-                    new FlightItem { FlightNumber = "01" },
-                    new FlightItem { FlightNumber = "02" },
-                    new FlightItem { FlightNumber = "03" },
+                    Items = new List<FlightItem>
+                    {
+                        new FlightItem { FlightNumber = "01" },
+                        new FlightItem { FlightNumber = "02" },
+                        new FlightItem { FlightNumber = "03" },
+                    }
                 }
             };
         }
     }
 
-    public interface IFlightOperation: IBusinessOperation
+    public interface IFlightOperation : IBusinessOperation
     {
-        FlightResponse Search(FlightRequest request);
+        BusinessResultBase<FlightResponse> Search(FlightRequest request);
     }
 }

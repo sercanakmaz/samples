@@ -1,10 +1,12 @@
-﻿using SimpleInjector.Sample1.Business;
+﻿using Newtonsoft.Json;
+using SimpleInjector.Sample1.Business;
 using SimpleInjector.Sample1.Business.Operations;
 using SimpleInjector.Sample1.Entity.Base;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -17,13 +19,20 @@ namespace SimpleInjector.Sample1
         {
             RegisterIOC();
 
-            var operation = container.GetInstance<IAccountOperation>();
+            var operation = container.GetInstance<IFlightOperation>();
 
-            var result = operation.Login("sercanakmaz", "1234");
-
-            if (result != null)
+            var result = operation.Search(new FlightRequest
             {
-                Console.WriteLine(result.FullName);
+                Origin = "A",
+                Destination = "B"
+            });
+
+            if (result.IsSucceed)
+            {
+                foreach (var item in result.Data.Items)
+                {
+                    Console.WriteLine(item.FlightNumber);
+                }
             }
 
             Console.ReadKey();
@@ -51,7 +60,7 @@ namespace SimpleInjector.Sample1
         public void Intercept(IInvocation invocation)
         {
             var watch = Stopwatch.StartNew();
-            var method = invocation.GetConcreteMethod();
+            var method = invocation.GetConcreteMethod() as MethodInfo;
             var parametersAsDictionary = GetMethodParameters(invocation, method);
             var handleErrorAttribute = GetHandleErrorAttribute(method);
 
@@ -61,19 +70,17 @@ namespace SimpleInjector.Sample1
             }
             catch (Exception ex)
             {
-                invocation.ReturnValue = new LoginResult { FullName = "hata" };
+                var returnTypeInstance = Activator.CreateInstance(method.ReturnType) as BusinessResultBase;
+
+                invocation.ReturnValue = returnTypeInstance;
 
                 Console.WriteLine("Hata oluştu: {0}", ex.ToString());
                 Console.WriteLine("LogLevel: {0}", handleErrorAttribute.Level);
-                Console.WriteLine("Parametreler");
-                foreach (var item in parametersAsDictionary)
-                {
-                    Console.WriteLine(" {0}: {1}", item.Key, item.Value);
-                }
+                Console.WriteLine("Parametreler: {0}", JsonConvert.SerializeObject(parametersAsDictionary));
             }
         }
 
-        private static Dictionary<string, object> GetMethodParameters(IInvocation invocation, System.Reflection.MethodBase method)
+        private static Dictionary<string, object> GetMethodParameters(IInvocation invocation, System.Reflection.MethodInfo method)
         {
             var parametersAsDictionary = new Dictionary<string, object>();
             int index = 0;
@@ -86,7 +93,7 @@ namespace SimpleInjector.Sample1
             return parametersAsDictionary;
         }
 
-        private static HandleErrorAttribute GetHandleErrorAttribute(System.Reflection.MethodBase method)
+        private static HandleErrorAttribute GetHandleErrorAttribute(System.Reflection.MethodInfo method)
         {
             var handleErrorAttribute = method.GetCustomAttributes(true).FirstOrDefault(p => p.GetType() == typeof(HandleErrorAttribute)) as HandleErrorAttribute;
 
