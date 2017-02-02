@@ -52,20 +52,8 @@ namespace SimpleInjector.Sample1
         {
             var watch = Stopwatch.StartNew();
             var method = invocation.GetConcreteMethod();
-            var parametersAsDictionary = new Dictionary<string, object>();
-            var handleErrorAttribute = method.GetCustomAttributes(true).FirstOrDefault(p => p.GetType() == typeof(HandleErrorAttribute)) as HandleErrorAttribute;
-
-            if (handleErrorAttribute == null)
-            {
-                handleErrorAttribute = new HandleErrorAttribute();
-            }
-
-            int index = 0;
-            foreach (var item in method.GetParameters())
-            {
-                parametersAsDictionary.Add(item.Name, invocation.Arguments[index]);
-                index++;
-            }
+            var parametersAsDictionary = GetMethodParameters(invocation, method);
+            var handleErrorAttribute = GetHandleErrorAttribute(method);
 
             try
             {
@@ -83,6 +71,31 @@ namespace SimpleInjector.Sample1
                     Console.WriteLine(" {0}: {1}", item.Key, item.Value);
                 }
             }
+        }
+
+        private static Dictionary<string, object> GetMethodParameters(IInvocation invocation, System.Reflection.MethodBase method)
+        {
+            var parametersAsDictionary = new Dictionary<string, object>();
+            int index = 0;
+            foreach (var item in method.GetParameters())
+            {
+                parametersAsDictionary.Add(item.Name, invocation.Arguments[index]);
+                index++;
+            }
+
+            return parametersAsDictionary;
+        }
+
+        private static HandleErrorAttribute GetHandleErrorAttribute(System.Reflection.MethodBase method)
+        {
+            var handleErrorAttribute = method.GetCustomAttributes(true).FirstOrDefault(p => p.GetType() == typeof(HandleErrorAttribute)) as HandleErrorAttribute;
+
+            if (handleErrorAttribute == null)
+            {
+                handleErrorAttribute = new HandleErrorAttribute();
+            }
+
+            return handleErrorAttribute;
         }
     }
 }
