@@ -17,11 +17,22 @@ namespace SimpleInjector.Sample1
         public static Container container = new Container();
         static void Main(string[] args)
         {
+            var task = MainAsync(args);
+
+            task.Wait();
+
+            if (task.Exception != null)
+            {
+                throw task.Exception;
+            }
+        }
+        static async Task MainAsync(string[] args)
+        {
             RegisterIOC();
 
             var operation = container.GetInstance<IFlightOperation>();
 
-            var result = operation.Search(new FlightRequest
+            var result = await operation.Search(new FlightRequest
             {
                 Origin = "A",
                 Destination = "B"
@@ -57,32 +68,77 @@ namespace SimpleInjector.Sample1
     }
     public class MonitoringInterceptor : IInterceptor
     {
+        private static readonly MethodInfo handleAsyncMethodInfo = typeof(MonitoringInterceptor).GetMethod("HandleAsyncWithResult", BindingFlags.Instance | BindingFlags.NonPublic);
         public void Intercept(IInvocation invocation)
         {
             var watch = Stopwatch.StartNew();
-            var method = invocation.GetConcreteMethod() as MethodInfo;
-            var parametersAsDictionary = GetMethodParameters(invocation, method);
-            var handleErrorAttribute = GetHandleErrorAttribute(method);
+            var methodInfo = invocation.GetConcreteMethod() as MethodInfo;
+            var methodDelegateType = GetMethodDelegateType(methodInfo);
+            var parametersAsDictionary = GetMethodParameters(invocation, methodInfo);
+            var handleErrorAttribute = GetHandleErrorAttribute(methodInfo);
 
             try
             {
-                invocation.Proceed();
+                switch (methodDelegateType)
+                {
+                    case MethodType.Synchronous:
+                        invocation.Proceed();
+                        break;
+                    case MethodType.AsyncAction:
+                    case MethodType.AsyncFunction:
+                        invocation.Proceed();
+
+                        var task = (Task)invocation.ReturnValue;
+                        task.Wait();
+
+                        if (task.Exception != null)
+                        {
+                            throw task.Exception;
+                        }
+                        break;
+                    default:
+                        break;
+                }
             }
             catch (Exception ex)
             {
-                var returnTypeInstance = Activator.CreateInstance(method.ReturnType) as BusinessResultBase;
+                if (invocation.ReturnValue is Task)
+                {
+                    // Task.FromResult metoduna generic type dinamik olarak gönderilerek defaultValue dönen bir Task oluşturulur.
 
-                invocation.ReturnValue = returnTypeInstance;
+                    var fromResultMethodInfo = typeof(Task).GetMethod("FromResult");
+                    var genericType = methodInfo.ReturnType.GetGenericArguments()[0];
+                    var genericMethod = fromResultMethodInfo.MakeGenericMethod(genericType);
+                    var defaultReturnInstance = Activator.CreateInstance(genericType);
 
-                string title = invocation.InvocationTarget.GetType().Name + ":" + method.Name;
+                    invocation.ReturnValue = genericMethod.Invoke(this, new[] { defaultReturnInstance });
+                }
+                else
+                {
+                    var defaultReturnInstance = Activator.CreateInstance(methodInfo.ReturnType);
+
+                    invocation.ReturnValue = defaultReturnInstance;
+                }
+
+
+                string title = invocation.InvocationTarget.GetType().Name + ":" + methodInfo.Name;
 
                 Console.WriteLine(title);
-                Console.WriteLine("Hata oluştu: {0}", ex.ToString());
+                Console.WriteLine("Hata oluştu: {0}", ex.InnerException.ToString());
                 Console.WriteLine("LogLevel: {0}", handleErrorAttribute.Level);
                 Console.WriteLine("Parametreler: {0}", JsonConvert.SerializeObject(parametersAsDictionary));
             }
         }
 
+        private MethodType GetMethodDelegateType(MethodInfo methodInfo)
+        {
+            var returnType = methodInfo.ReturnType;
+            if (returnType == typeof(Task))
+                return MethodType.AsyncAction;
+            if (returnType.IsGenericType && returnType.GetGenericTypeDefinition() == typeof(Task<>))
+                return MethodType.AsyncFunction;
+            return MethodType.Synchronous;
+        }
         private static Dictionary<string, object> GetMethodParameters(IInvocation invocation, System.Reflection.MethodInfo method)
         {
             var parametersAsDictionary = new Dictionary<string, object>();
@@ -106,6 +162,12 @@ namespace SimpleInjector.Sample1
             }
 
             return handleErrorAttribute;
+        }
+        private enum MethodType
+        {
+            Synchronous,
+            AsyncAction,
+            AsyncFunction
         }
     }
 }

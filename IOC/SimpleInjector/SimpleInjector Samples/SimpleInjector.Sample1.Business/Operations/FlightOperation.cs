@@ -3,14 +3,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace SimpleInjector.Sample1.Business.Operations
 {
     public class FlightOperation : IFlightOperation
     {
-        public BusinessResultBase<FlightResponse> Search(FlightRequest request)
+        public async Task<BusinessResultBase<FlightResponse>> Search(FlightRequest request)
         {
+            Thread.Sleep(1500);
             throw new NotImplementedException();
             return new BusinessResultBase<FlightResponse>
             {
@@ -30,6 +32,6 @@ namespace SimpleInjector.Sample1.Business.Operations
 
     public interface IFlightOperation : IBusinessOperation
     {
-        BusinessResultBase<FlightResponse> Search(FlightRequest request);
+        Task<BusinessResultBase<FlightResponse>> Search(FlightRequest request);
     }
 }
