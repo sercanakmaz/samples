@@ -22,6 +22,7 @@ namespace SimpleInjector.Sample1
         object ReturnValue { get; set; }
         object[] Arguments { get; }
         void Proceed();
+        Task ProceedAsync();
         MethodBase GetConcreteMethod();
     }
 
@@ -295,7 +296,10 @@ namespace SimpleInjector.Sample1
                 {
                     this.Proceeding();
                 }
-
+                public async Task ProceedAsync()
+                {
+                    await Task.Run(() => Proceed());
+                }
                 public MethodBase GetConcreteMethod()
                 {
                     return this.Message.MethodBase;
