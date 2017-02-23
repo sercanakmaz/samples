@@ -60,7 +60,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Customers.cs" />
-    <Compile Include="EntityBase.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="CustomersRepository.cs" />
     <Compile Include="Program.cs" />
