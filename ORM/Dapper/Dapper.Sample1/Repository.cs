@@ -21,8 +21,8 @@ namespace Dapper.Sample1
                 return result;
             }
         }
-        public abstract IFieldPredicate KeyPredicate(TEntity entity);
-        public abstract IFieldPredicate KeyPredicate(TEntityKey key);
+        protected abstract IFieldPredicate KeyPredicate(TEntity entity);
+        protected abstract IFieldPredicate KeyPredicate(TEntityKey key);
         public TEntity GetByID(TEntityKey key)
         {
             var result = UseDbConnection((conn) =>

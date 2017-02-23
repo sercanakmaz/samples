@@ -11,7 +11,6 @@ namespace Dapper.Sample1
         TEntity GetByID(TEntityKey key);
         int Insert(TEntity entity);
         bool Update(TEntity entity);
-        int Save(TEntity entity);
         bool Delete(TEntityKey key);
     }
 }
