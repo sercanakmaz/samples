@@ -1,6 +1,4 @@
-﻿using Dapper.Contrib;
-using Dapper.Contrib.Extensions;
-using JohnsonNet;
+﻿using DapperExtensions;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -10,71 +8,73 @@ using System.Threading.Tasks;
 
 namespace Dapper.Sample1
 {
-    public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
+    public abstract class Repository<TEntity, TEntityKey> : IRepository<TEntity, TEntityKey> where TEntity : class
     {
-        protected IDbConnection Connection
+        protected TReturn UseDbConnection<TReturn>(Func<IDbConnection, TReturn> action)
         {
-            get
+            using (var connection = JohnsonNet.JohnsonManager.Config.Current.GetConnection("LocalSqlServer"))
             {
-                var connection = JohnsonManager.Config.Current.GetConnection("LocalSqlServer");
                 connection.Open();
+                var result = action(connection);
+                connection.Close();
 
-                return connection;
+                return result;
             }
         }
-
-        public bool Delete(IEnumerable<TEntity> list)
+        public abstract IFieldPredicate KeyPredicate(TEntity entity);
+        public abstract IFieldPredicate KeyPredicate(TEntityKey key);
+        public TEntity GetByID(TEntityKey key)
         {
-            List<bool> results = new List<bool>();
-
-            foreach (var item in list)
+            var result = UseDbConnection((conn) =>
             {
-                Connection.Delete(item);
-            }
-
-            return results.All(p => p);
-        }
-
-        public bool Delete(TEntity obj)
-        {
-            return Connection.Delete(obj);
-        }
-
-        public bool DeleteAll()
-        {
-            return Connection.DeleteAll<TEntity>();
-        }
-
-        public TEntity Get(dynamic id)
-        {
-            var result = SqlMapperExtensions.Get<TEntity>(Connection, id);
+                return conn.Get<TEntity>(key);
+            });
 
             return result;
         }
-
-        public IEnumerable<TEntity> GetAll()
+        public int Insert(TEntity entity)
         {
-            throw new NotImplementedException();
+            var result = UseDbConnection((conn) =>
+            {
+                return conn.Insert(entity);
+            });
+
+            return result;
         }
-
-        public int Insert(IEnumerable<TEntity> list)
+        public bool Update(TEntity entity)
         {
-            throw new NotImplementedException();
+            var result = UseDbConnection((conn) =>
+            {
+                return conn.Update(entity);
+            });
+
+            return result;
         }
-
-        public int Insert(TEntity obj)
+        public int Save(TEntity entity)
         {
-            throw new NotImplementedException();
+            var result = UseDbConnection((conn) =>
+            {
+                var existsPred = Predicates.Exists<TEntity>(KeyPredicate(entity));
+                var existingUser = conn.GetList<TEntity>(existsPred).FirstOrDefault();
+
+                if (existingUser != null)
+                {
+                    return Update(entity) ? 1 : 0;
+                }
+
+                return Insert(entity);
+            });
+
+            return result;
         }
-
-        public bool Update(IEnumerable<TEntity> list)
+        public bool Delete(TEntityKey key)
         {
-            throw new NotImplementedException();
-        }
+            var result =  UseDbConnection((conn) =>
+            {
+                return conn.Delete<TEntity>(KeyPredicate(key));
+            });
 
-        public bool Update(TEntity obj)
-        {
-            throw new NotImplementedException();
+            return result;
         }
     }
 }

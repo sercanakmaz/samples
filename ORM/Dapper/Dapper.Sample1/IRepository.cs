@@ -6,16 +6,12 @@ using System.Threading.Tasks;
 
 namespace Dapper.Sample1
 {
-    public interface IRepository<TEntity> where TEntity : class
+    public interface IRepository<TEntity, TEntityKey> where TEntity : class
     {
-        TEntity Get(dynamic id);
-        IEnumerable<TEntity> GetAll();
-        int Insert(TEntity obj);
-        int Insert(IEnumerable<TEntity> list);
-        bool Update(TEntity obj);
-        bool Update(IEnumerable<TEntity> list);
-        bool Delete(TEntity obj);
-        bool Delete(IEnumerable<TEntity> list);
-        bool DeleteAll();
+        TEntity GetByID(TEntityKey key);
+        int Insert(TEntity entity);
+        bool Update(TEntity entity);
+        int Save(TEntity entity);
+        bool Delete(TEntityKey key);
     }
 }
