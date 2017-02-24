@@ -10,7 +10,7 @@ namespace Dapper.Sample1
 {
     public abstract class Repository<TEntity, TEntityKey> : IRepository<TEntity, TEntityKey> where TEntity : class
     {
-        protected TReturn UseDbConnection<TReturn>(Func<IDbConnection, TReturn> action)
+        protected virtual TReturn UseDbConnection<TReturn>(Func<IDbConnection, TReturn> action)
         {
             using (var connection = JohnsonNet.JohnsonManager.Config.Current.GetConnection("LocalSqlServer"))
             {
@@ -23,7 +23,7 @@ namespace Dapper.Sample1
         }
         protected abstract IFieldPredicate KeyPredicate(TEntity entity);
         protected abstract IFieldPredicate KeyPredicate(TEntityKey key);
-        public TEntity GetByID(TEntityKey key)
+        public virtual TEntity GetByID(TEntityKey key)
         {
             var result = UseDbConnection((conn) =>
             {
@@ -32,7 +32,7 @@ namespace Dapper.Sample1
 
             return result;
         }
-        public int Insert(TEntity entity)
+        public virtual int Insert(TEntity entity)
         {
             var result = UseDbConnection((conn) =>
             {
@@ -41,7 +41,7 @@ namespace Dapper.Sample1
 
             return result;
         }
-        public bool Update(TEntity entity)
+        public virtual bool Update(TEntity entity)
         {
             var result = UseDbConnection((conn) =>
             {
@@ -50,7 +50,7 @@ namespace Dapper.Sample1
 
             return result;
         }
-        public int Save(TEntity entity)
+        public virtual int Save(TEntity entity)
         {
             var result = UseDbConnection((conn) =>
             {
@@ -67,7 +67,7 @@ namespace Dapper.Sample1
 
             return result;
         }
-        public bool Delete(TEntityKey key)
+        public virtual bool Delete(TEntityKey key)
         {
             var result =  UseDbConnection((conn) =>
             {
