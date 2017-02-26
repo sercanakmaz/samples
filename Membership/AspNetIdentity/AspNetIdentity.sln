@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetIdentity.Sample1", "AspNetIdentity.Sample1\AspNetIdentity.Sample1.csproj", "{7573F7B7-C2BC-45BD-9F20-3B016FF0983D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{F5245484-83E4-4058-B86E-8B20B797F458}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{B365A8CD-8FFB-46C6-93D8-C1927A564DFA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cross Cutting", "Cross Cutting", "{111FD3CB-7BB1-4C4F-A8D8-33506D65B8BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetIdentity.Data", "AspNetIdentity.Data\AspNetIdentity.Data.csproj", "{861BA1FE-7E57-43C6-9DF2-665CE8981F02}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetIdentity.Entities", "AspNetIdentity.Entities\AspNetIdentity.Entities.csproj", "{2ACE7941-A276-4E83-AB27-9ABF5CA1272C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetIdentity.ConsoleApp1", "AspNetIdentity.ConsoleApp1\AspNetIdentity.ConsoleApp1.csproj", "{5186F0D2-D2AC-439F-8CEF-5216CAB24AD3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business", "Business", "{887D6AAD-42E6-4291-9F39-0EF55955EA31}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetIdentity.Business", "AspNetIdentity.Business\AspNetIdentity.Business.csproj", "{9A349976-FA4D-4052-B555-322519272C4F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7573F7B7-C2BC-45BD-9F20-3B016FF0983D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7573F7B7-C2BC-45BD-9F20-3B016FF0983D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7573F7B7-C2BC-45BD-9F20-3B016FF0983D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7573F7B7-C2BC-45BD-9F20-3B016FF0983D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{861BA1FE-7E57-43C6-9DF2-665CE8981F02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{861BA1FE-7E57-43C6-9DF2-665CE8981F02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{861BA1FE-7E57-43C6-9DF2-665CE8981F02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{861BA1FE-7E57-43C6-9DF2-665CE8981F02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2ACE7941-A276-4E83-AB27-9ABF5CA1272C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2ACE7941-A276-4E83-AB27-9ABF5CA1272C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2ACE7941-A276-4E83-AB27-9ABF5CA1272C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2ACE7941-A276-4E83-AB27-9ABF5CA1272C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5186F0D2-D2AC-439F-8CEF-5216CAB24AD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5186F0D2-D2AC-439F-8CEF-5216CAB24AD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5186F0D2-D2AC-439F-8CEF-5216CAB24AD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5186F0D2-D2AC-439F-8CEF-5216CAB24AD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A349976-FA4D-4052-B555-322519272C4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A349976-FA4D-4052-B555-322519272C4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A349976-FA4D-4052-B555-322519272C4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A349976-FA4D-4052-B555-322519272C4F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7573F7B7-C2BC-45BD-9F20-3B016FF0983D} = {B365A8CD-8FFB-46C6-93D8-C1927A564DFA}
+		{861BA1FE-7E57-43C6-9DF2-665CE8981F02} = {F5245484-83E4-4058-B86E-8B20B797F458}
+		{2ACE7941-A276-4E83-AB27-9ABF5CA1272C} = {111FD3CB-7BB1-4C4F-A8D8-33506D65B8BA}
+		{5186F0D2-D2AC-439F-8CEF-5216CAB24AD3} = {B365A8CD-8FFB-46C6-93D8-C1927A564DFA}
+		{9A349976-FA4D-4052-B555-322519272C4F} = {887D6AAD-42E6-4291-9F39-0EF55955EA31}
+	EndGlobalSection
+EndGlobal
