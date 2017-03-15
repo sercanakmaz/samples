@@ -27,6 +27,17 @@ namespace AspNetIdentity.Sample1.Models
         {
         }
 
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<ApplicationUser>().ToTable("User", "Membership");
+            modelBuilder.Entity<IdentityRole>().ToTable("Role", "Membership");
+            modelBuilder.Entity<IdentityUserLogin>().ToTable("UserLogin", "Membership");
+            modelBuilder.Entity<IdentityUserRole>().ToTable("UserRole", "Membership");
+            modelBuilder.Entity<IdentityUserClaim>().ToTable("UserClaim", "Membership");
+        }
+
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();

@@ -12,10 +12,16 @@ namespace Dapper.Sample1
     {
         static void Main(string[] args)
         {
-            CustomersRepository repository = new CustomersRepository();
-            var lead = repository.GetByID("AROUT");
+            var repository = new CategoryRepository();
 
-            Console.WriteLine(lead.CompanyName);
+            var category = new Categories
+            {
+                CategoryName = "Müşteri"
+            };
+
+            repository.Save(category);
+
+
             Console.ReadKey();
         }
     }
