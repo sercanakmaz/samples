@@ -9,7 +9,7 @@ using System.Runtime.Remoting.Proxies;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SimpleInjector.Sample1
+namespace SimpleInjector.Sample1.Core
 {
     public interface IInterceptor
     {
@@ -22,7 +22,6 @@ namespace SimpleInjector.Sample1
         object ReturnValue { get; set; }
         object[] Arguments { get; }
         void Proceed();
-        Task ProceedAsync();
         MethodBase GetConcreteMethod();
     }
 
@@ -101,7 +100,6 @@ namespace SimpleInjector.Sample1
             container.ExpressionBuilt += interceptWith.OnExpressionBuilt;
         }
 
-        [DebuggerStepThrough]
         private static Expression BuildInterceptorExpression<TInterceptor>(
             Container container)
             where TInterceptor : class
@@ -149,7 +147,6 @@ namespace SimpleInjector.Sample1
 
             internal Func<Type, bool> Predicate { get; set; }
 
-            [DebuggerStepThrough]
             public void OnExpressionBuilt(object sender, ExpressionBuiltEventArgs e)
             {
                 if (this.Predicate(e.RegisteredServiceType))
@@ -159,7 +156,6 @@ namespace SimpleInjector.Sample1
                 }
             }
 
-            [DebuggerStepThrough]
             private static void ThrowIfServiceTypeNotAnInterface(ExpressionBuiltEventArgs e)
             {
                 // NOTE: We can only handle interfaces, because
@@ -171,7 +167,6 @@ namespace SimpleInjector.Sample1
                 }
             }
 
-            [DebuggerStepThrough]
             private Expression BuildProxyExpression(ExpressionBuiltEventArgs e)
             {
                 var interceptor = this.BuildInterceptorExpression(e);
@@ -195,7 +190,6 @@ namespace SimpleInjector.Sample1
                 return proxyExpression;
             }
 
-            [DebuggerStepThrough]
             private static object CreateInstance(Expression expression)
             {
                 var instanceCreator = Expression.Lambda<Func<object>>(expression,
@@ -213,8 +207,7 @@ namespace SimpleInjector.Sample1
         {
             return (T)CreateProxy(typeof(T), interceptor, realInstance);
         }
-
-        [DebuggerStepThrough]
+        
         public static object CreateProxy(Type serviceType, IInterceptor interceptor,
             object realInstance)
         {
@@ -229,7 +222,6 @@ namespace SimpleInjector.Sample1
             private object realInstance;
             private IInterceptor interceptor;
 
-            [DebuggerStepThrough]
             public InterceptorProxy(Type classToProxy, object realInstance,
                 IInterceptor interceptor)
                 : base(classToProxy)
@@ -295,10 +287,6 @@ namespace SimpleInjector.Sample1
                 public void Proceed()
                 {
                     this.Proceeding();
-                }
-                public async Task ProceedAsync()
-                {
-                    await Task.Run(() => Proceed());
                 }
                 public MethodBase GetConcreteMethod()
                 {

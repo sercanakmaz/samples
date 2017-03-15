@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace SimpleInjector.Sample1
+namespace SimpleInjector.Sample1.Core
 {
     public static class AsyncHelpers
     {

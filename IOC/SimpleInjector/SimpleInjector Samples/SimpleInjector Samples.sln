@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleInjector.Sample1.Busi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleInjector.Sample1.Entity", "SimpleInjector.Sample1.Entity\SimpleInjector.Sample1.Entity.csproj", "{71F0A350-431F-4A34-AD31-483AB558BC7E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleInjector.Sample1.Core", "SimpleInjector.Sample1.Core\SimpleInjector.Sample1.Core.csproj", "{DD942A3A-3252-4727-BB41-F5B0E8607DBB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{71F0A350-431F-4A34-AD31-483AB558BC7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{71F0A350-431F-4A34-AD31-483AB558BC7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{71F0A350-431F-4A34-AD31-483AB558BC7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD942A3A-3252-4727-BB41-F5B0E8607DBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD942A3A-3252-4727-BB41-F5B0E8607DBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD942A3A-3252-4727-BB41-F5B0E8607DBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD942A3A-3252-4727-BB41-F5B0E8607DBB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

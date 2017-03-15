@@ -4,17 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{65C0D56E-3D6A-4EA6-AB75-4DAECA11B111}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{DD942A3A-3252-4727-BB41-F5B0E8607DBB}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SimpleInjector.Sample1</RootNamespace>
-    <AssemblyName>SimpleInjector.Sample1</AssemblyName>
+    <RootNamespace>SimpleInjector.Sample1.Core</RootNamespace>
+    <AssemblyName>SimpleInjector.Sample1.Core</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -51,25 +48,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="AsyncHelpers.cs" />
+    <Compile Include="Intercepter.cs" />
+    <Compile Include="InternalAsyncHelper.cs" />
+    <Compile Include="MonitoringInterceptor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SimpleInjector.Sample1.Business\SimpleInjector.Sample1.Business.csproj">
       <Project>{ff3df5e4-04d4-4adc-b3f9-53fcf0d96759}</Project>
       <Name>SimpleInjector.Sample1.Business</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SimpleInjector.Sample1.Core\SimpleInjector.Sample1.Core.csproj">
-      <Project>{dd942a3a-3252-4727-bb41-f5b0e8607dbb}</Project>
-      <Name>SimpleInjector.Sample1.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SimpleInjector.Sample1.Entity\SimpleInjector.Sample1.Entity.csproj">
-      <Project>{71f0a350-431f-4a34-ad31-483ab558bc7e}</Project>
-      <Name>SimpleInjector.Sample1.Entity</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

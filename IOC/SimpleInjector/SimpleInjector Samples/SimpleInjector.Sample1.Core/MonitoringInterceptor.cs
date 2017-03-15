@@ -8,7 +8,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SimpleInjector.Sample1
+namespace SimpleInjector.Sample1.Core
 {
     public class MonitoringInterceptor : IInterceptor
     {
@@ -30,13 +30,12 @@ namespace SimpleInjector.Sample1
                         break;
                     case MethodType.AsyncAction:
                     case MethodType.AsyncFunction:
-                        AsyncHelpers.RunSync(() => invocation.ProceedAsync());
+                        invocation.Proceed();
 
-                        var task = invocation.ReturnValue as Task;
-                        if (task.Exception != null)
+                        ((Task)invocation.ReturnValue).ContinueWith((task) =>
                         {
-                            throw task.Exception;
-                        }
+                            HandleException(invocation, methodInfo, parametersAsDictionary, handleErrorAttribute, task.Exception);
+                        });
 
                         break;
                     default:
@@ -45,32 +44,37 @@ namespace SimpleInjector.Sample1
             }
             catch (Exception ex)
             {
-                if (invocation.ReturnValue is Task)
-                {
-                    // Task.FromResult metoduna generic type dinamik olarak gönderilerek defaultValue dönen bir Task oluşturulur.
+                HandleException(invocation, methodInfo, parametersAsDictionary, handleErrorAttribute, ex);
+            }   
+        }
 
-                    var fromResultMethodInfo = typeof(Task).GetMethod("FromResult");
-                    var genericType = methodInfo.ReturnType.GetGenericArguments()[0];
-                    var genericMethod = fromResultMethodInfo.MakeGenericMethod(genericType);
-                    var defaultReturnInstance = Activator.CreateInstance(genericType);
+        private void HandleException(IInvocation invocation, MethodInfo methodInfo, Dictionary<string, object> parametersAsDictionary, HandleErrorAttribute handleErrorAttribute, Exception ex)
+        {
+            if (invocation.ReturnValue is Task)
+            {
+                // Task.FromResult metoduna generic type dinamik olarak gönderilerek defaultValue dönen bir Task oluşturulur.
 
-                    invocation.ReturnValue = genericMethod.Invoke(this, new[] { defaultReturnInstance });
-                }
-                else
-                {
-                    var defaultReturnInstance = Activator.CreateInstance(methodInfo.ReturnType);
+                var fromResultMethodInfo = typeof(Task).GetMethod("FromResult");
+                var genericType = methodInfo.ReturnType.GetGenericArguments()[0];
+                var genericMethod = fromResultMethodInfo.MakeGenericMethod(genericType);
+                var defaultReturnInstance = Activator.CreateInstance(genericType);
 
-                    invocation.ReturnValue = defaultReturnInstance;
-                }
-
-
-                string title = invocation.InvocationTarget.GetType().Name + ":" + methodInfo.Name;
-
-                Console.WriteLine(title);
-                Console.WriteLine("Hata oluştu: {0}", ex.InnerException.ToString());
-                Console.WriteLine("LogLevel: {0}", handleErrorAttribute.Level);
-                Console.WriteLine("Parametreler: {0}", JsonConvert.SerializeObject(parametersAsDictionary));
+                invocation.ReturnValue = genericMethod.Invoke(this, new[] { defaultReturnInstance });
             }
+            else
+            {
+                var defaultReturnInstance = Activator.CreateInstance(methodInfo.ReturnType);
+
+                invocation.ReturnValue = defaultReturnInstance;
+            }
+
+
+            string title = invocation.InvocationTarget.GetType().Name + ":" + methodInfo.Name;
+
+            Console.WriteLine(title);
+            Console.WriteLine("Hata oluştu: {0}", ex.InnerException.ToString());
+            Console.WriteLine("LogLevel: {0}", handleErrorAttribute.Level);
+            Console.WriteLine("Parametreler: {0}", JsonConvert.SerializeObject(parametersAsDictionary));
         }
 
         private MethodType GetMethodDelegateType(MethodInfo methodInfo)
