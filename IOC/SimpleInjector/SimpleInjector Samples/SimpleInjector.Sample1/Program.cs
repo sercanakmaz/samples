@@ -1,5 +1,6 @@
 ﻿using SimpleInjector.Sample1.Business;
 using SimpleInjector.Sample1.Business.Operations;
+using SimpleInjector.Sample1.Core;
 using SimpleInjector.Sample1.Entity.Base;
 using System;
 using System.Threading.Tasks;
