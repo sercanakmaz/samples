@@ -45,6 +45,13 @@ namespace AspNetBuilerplate.Sample1.Web
                         url: "#/about",
                         icon: "fa fa-info"
                         )
+                ).AddItem(
+                    new MenuItemDefinition(
+                        "TaskList",
+                        new LocalizableString("TaskList", Sample1Consts.LocalizationSourceName),
+                        url: "#/tasks",
+                        icon: "fa fa-tasks"
+                        )
                 );
         }
 

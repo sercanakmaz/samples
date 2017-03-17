@@ -3,12 +3,14 @@ using Abp.Zero.EntityFramework;
 using AspNetBuilerplate.Sample1.Authorization.Roles;
 using AspNetBuilerplate.Sample1.MultiTenancy;
 using AspNetBuilerplate.Sample1.Users;
+using System.Data.Entity;
+using AspNetBuilerplate.Sample1.Tasks;
 
 namespace AspNetBuilerplate.Sample1.EntityFramework
 {
     public class Sample1DbContext : AbpZeroDbContext<Tenant, Role, User>
     {
-        //TODO: Define an IDbSet for your Entities...
+        public DbSet<Task> Tasks { get; set; }
 
         /* NOTE: 
          *   Setting "Default" to base class helps us when working migration commands on Package Manager Console.
