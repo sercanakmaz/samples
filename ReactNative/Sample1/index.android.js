@@ -9,44 +9,45 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
+  TextInput,
+  Image,
   View
 } from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
 
 export default class Sample1 extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
-      </View>
+        <LinearGradient colors={['#a4c639', '#63bcb8']} style={styles.linearGradient}>
+          <Image
+              resizeMode="contain"
+              style={styles.logo}
+              source={require('./assets/img/logo.png')}
+            />
+          <TextInput
+              placeholder="TC Kimlik No"
+              style={{height: 40, 
+                      width: '75%',
+                      alignContent: 'center',
+                      alignSelf: 'center'}}
+            />
+        </LinearGradient>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+  logo: {
+     flex: 3,
+     maxWidth: 445,
+     maxHeight: 264,
+     width: '50%',
+     alignContent: 'center',
+     alignSelf: 'center'
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+  linearGradient: {
+    flex:1,
+    borderWidth: 4
   },
 });
 
