@@ -14,24 +14,41 @@ import {
   View
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import { COLOR, ThemeProvider, Button } from 'react-native-material-ui';
+
+const uiTheme = {
+    palette: {
+        primaryColor: COLOR.green500,
+    },
+    toolbar: {
+        container: {
+            height: 50,
+        },
+    },
+};
+
 
 export default class Sample1 extends Component {
   render() {
     return (
-        <LinearGradient colors={['#a4c639', '#63bcb8']} style={styles.linearGradient}>
-          <Image
-              resizeMode="contain"
-              style={styles.logo}
-              source={require('./assets/img/logo.png')}
-            />
-          <TextInput
-              placeholder="TC Kimlik No"
-              style={{height: 40, 
-                      width: '75%',
-                      alignContent: 'center',
-                      alignSelf: 'center'}}
-            />
-        </LinearGradient>
+        <ThemeProvider uiTheme={uiTheme}>
+          <LinearGradient colors={['#a4c639', '#63bcb8']} style={styles.linearGradient}>
+            <Image
+                resizeMode="contain"
+                style={styles.logo}
+                source={require('./assets/img/logo.png')}
+              />
+            <TextInput
+                placeholder="TC Kimlik No"
+                style={{height: 40, 
+                        width: '75%',
+                        alignContent: 'center',
+                        alignSelf: 'center'}}
+              />
+            <Button raised primary text="Primary" />
+
+          </LinearGradient>
+        </ThemeProvider>
     );
   }
 }
