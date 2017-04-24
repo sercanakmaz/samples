@@ -118,6 +118,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EntityFramework\Repositories\ITaskRepository.cs" />
+    <Compile Include="EntityFramework\Repositories\TaskRepository.cs" />
     <Compile Include="EntityFramework\Sample1DbContext.cs" />
     <Compile Include="EntityFramework\Repositories\Sample1RepositoryBase.cs" />
     <Compile Include="Migrations\201701271145151_AbpZero_Initial.cs" />
@@ -127,6 +129,10 @@
     <Compile Include="Migrations\201703161528070_TaskMig1.cs" />
     <Compile Include="Migrations\201703161528070_TaskMig1.Designer.cs">
       <DependentUpon>201703161528070_TaskMig1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703171156312_mig2.cs" />
+    <Compile Include="Migrations\201703171156312_mig2.Designer.cs">
+      <DependentUpon>201703171156312_mig2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
@@ -156,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703161528070_TaskMig1.resx">
       <DependentUpon>201703161528070_TaskMig1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703171156312_mig2.resx">
+      <DependentUpon>201703171156312_mig2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -536,3 +536,177 @@ DEBUG 2017-03-17 11:20:37,170 [1    ] Abp.Logging.LogHelper                    -
 DEBUG 2017-03-17 11:20:37,715 [12   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"19456afd-478d-407c-a5fa-daff1781810c","IpAddress":"::1","TenantId":null,"UserId":1,"ConnectTime":"2017-03-17T11:20:37.704037+02:00","Properties":{}}
 DEBUG 2017-03-17 11:20:41,873 [11   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"716d30ed-1518-4873-9bd8-a923111be5d2","IpAddress":"::1","TenantId":null,"UserId":1,"ConnectTime":"2017-03-17T11:20:41.8734089+02:00","Properties":{}}
 DEBUG 2017-03-17 11:20:41,912 [13   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: 716d30ed-1518-4873-9bd8-a923111be5d2
+DEBUG 2017-03-17 14:46:13,910 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2017-03-17 14:46:13,922 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+DEBUG 2017-03-17 14:46:13,925 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: AspNetBuilerplate.Sample1.Web.Sample1WebModule, AspNetBuilerplate.Sample1.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-03-17 14:46:13,927 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: AspNetBuilerplate.Sample1.Sample1DataModule, AspNetBuilerplate.Sample1.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-03-17 14:46:13,927 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFramework.AbpZeroEntityFrameworkModule, Abp.Zero.EntityFramework, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-03-17 14:46:13,927 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.Zero, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-03-17 14:46:13,927 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-03-17 14:46:13,927 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-03-17 14:46:13,927 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: AspNetBuilerplate.Sample1.Sample1CoreModule, AspNetBuilerplate.Sample1.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-03-17 14:46:13,927 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: AspNetBuilerplate.Sample1.Sample1ApplicationModule, AspNetBuilerplate.Sample1.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-03-17 14:46:13,928 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-03-17 14:46:13,928 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: AspNetBuilerplate.Sample1.Api.Sample1WebApiModule, AspNetBuilerplate.Sample1.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-03-17 14:46:13,928 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-03-17 14:46:13,928 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-03-17 14:46:13,928 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-03-17 14:46:13,928 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.SignalR.AbpWebSignalRModule, Abp.Web.SignalR, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-03-17 14:46:13,928 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-03-17 14:46:13,930 [1    ] Abp.Modules.AbpModuleManager             - 15 modules loaded.
+DEBUG 2017-03-17 14:46:14,032 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-03-17 14:46:14,032 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-03-17 14:46:14,032 [1    ] o.Configuration.LanguageManagementConfig - Converted Sample1 (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-03-17 14:46:14,032 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-03-17 14:46:14,375 [1    ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: AspNetBuilerplate.Sample1.EntityFramework.Sample1DbContext, AspNetBuilerplate.Sample1.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-03-17 14:46:15,358 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2017-03-17 14:46:15,363 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2017-03-17 14:46:15,365 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2017-03-17 14:46:15,368 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Sample1
+DEBUG 2017-03-17 14:46:15,369 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2017-03-17 14:46:15,464 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-03-17 14:46:15,522 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 8 classes define auto mapping attributes
+DEBUG 2017-03-17 14:46:15,522 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - AspNetBuilerplate.Sample1.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2017-03-17 14:46:15,524 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - AspNetBuilerplate.Sample1.Sessions.Dto.UserLoginInfoDto
+DEBUG 2017-03-17 14:46:15,525 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - AspNetBuilerplate.Sample1.Users.Dto.CreateUserInput
+DEBUG 2017-03-17 14:46:15,525 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - AspNetBuilerplate.Sample1.Users.Dto.UserListDto
+DEBUG 2017-03-17 14:46:15,525 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - AspNetBuilerplate.Sample1.Tasks.Dto.TaskListDto
+DEBUG 2017-03-17 14:46:15,525 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - AspNetBuilerplate.Sample1.MultiTenancy.Dto.CreateTenantInput
+DEBUG 2017-03-17 14:46:15,525 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - AspNetBuilerplate.Sample1.MultiTenancy.Dto.TenantListDto
+DEBUG 2017-03-17 14:46:15,525 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - AspNetBuilerplate.Sample1.Web.Models.Account.TenantSelectionViewModel+TenantInfo
+DEBUG 2017-03-17 14:46:17,057 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'AspNetBuilerplate.Sample1.Sessions.ISessionAppService' with service name 'app/session'.
+DEBUG 2017-03-17 14:46:17,058 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'AspNetBuilerplate.Sample1.Users.IUserAppService' with service name 'app/user'.
+DEBUG 2017-03-17 14:46:17,059 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'AspNetBuilerplate.Sample1.Roles.IRoleAppService' with service name 'app/role'.
+DEBUG 2017-03-17 14:46:17,059 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'AspNetBuilerplate.Sample1.MultiTenancy.ITenantAppService' with service name 'app/tenant'.
+WARN  2017-03-17 14:46:18,383 [9    ] Abp.Logging.LogHelper                    - Abp.Authorization.AbpAuthorizationException: Kullanýcý giriþi yapýlmamýþ!
+   at Abp.Authorization.AuthorizationHelper.<AuthorizeAsync>d__19.MoveNext() in D:\Halil\Github\aspnetboilerplate\src\Abp\Authorization\AuthorizationHelper.cs:line 42
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Abp.Authorization.AuthorizationHelper.<CheckPermissions>d__22.MoveNext() in D:\Halil\Github\aspnetboilerplate\src\Abp\Authorization\AuthorizationHelper.cs:line 100
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Abp.Authorization.AuthorizationHelper.<AuthorizeAsync>d__20.MoveNext() in D:\Halil\Github\aspnetboilerplate\src\Abp\Authorization\AuthorizationHelper.cs:line 67
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Nito.AsyncEx.AsyncContext.<>c__DisplayClass3.<Run>b__1(Task t)
+   at System.Threading.Tasks.ContinuationTaskFromTask.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Nito.AsyncEx.AsyncContext.Run(Func`1 action)
+   at Abp.Authorization.AuthorizationHelperExtensions.Authorize(IAuthorizationHelper authorizationHelper, MethodInfo methodInfo) in D:\Halil\Github\aspnetboilerplate\src\Abp\Authorization\AuthorizationHelperExtensions.cs:line 27
+   at Abp.Web.Mvc.Authorization.AbpMvcAuthorizeFilter.OnAuthorization(AuthorizationContext filterContext) in D:\Halil\Github\aspnetboilerplate\src\Abp.Web.Mvc\Web\Mvc\Authorization\AbpMvcAuthorizeFilter.cs:line 48
+Abp.Authorization.AbpAuthorizationException: Kullanýcý giriþi yapýlmamýþ!
+   at Abp.Authorization.AuthorizationHelper.<AuthorizeAsync>d__19.MoveNext() in D:\Halil\Github\aspnetboilerplate\src\Abp\Authorization\AuthorizationHelper.cs:line 42
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Abp.Authorization.AuthorizationHelper.<CheckPermissions>d__22.MoveNext() in D:\Halil\Github\aspnetboilerplate\src\Abp\Authorization\AuthorizationHelper.cs:line 100
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Abp.Authorization.AuthorizationHelper.<AuthorizeAsync>d__20.MoveNext() in D:\Halil\Github\aspnetboilerplate\src\Abp\Authorization\AuthorizationHelper.cs:line 67
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Nito.AsyncEx.AsyncContext.<>c__DisplayClass3.<Run>b__1(Task t)
+   at System.Threading.Tasks.ContinuationTaskFromTask.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Nito.AsyncEx.AsyncContext.Run(Func`1 action)
+   at Abp.Authorization.AuthorizationHelperExtensions.Authorize(IAuthorizationHelper authorizationHelper, MethodInfo methodInfo) in D:\Halil\Github\aspnetboilerplate\src\Abp\Authorization\AuthorizationHelperExtensions.cs:line 27
+   at Abp.Web.Mvc.Authorization.AbpMvcAuthorizeFilter.OnAuthorization(AuthorizationContext filterContext) in D:\Halil\Github\aspnetboilerplate\src\Abp.Web.Mvc\Web\Mvc\Authorization\AbpMvcAuthorizeFilter.cs:line 48
+DEBUG 2017-03-17 14:46:35,448 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2017-03-17 14:46:36,259 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+DEBUG 2017-03-17 14:46:36,262 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: AspNetBuilerplate.Sample1.Web.Sample1WebModule, AspNetBuilerplate.Sample1.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-03-17 14:46:36,265 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: AspNetBuilerplate.Sample1.Sample1DataModule, AspNetBuilerplate.Sample1.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-03-17 14:46:36,265 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFramework.AbpZeroEntityFrameworkModule, Abp.Zero.EntityFramework, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-03-17 14:46:36,265 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.Zero, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-03-17 14:46:36,265 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-03-17 14:46:36,266 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-03-17 14:46:36,266 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: AspNetBuilerplate.Sample1.Sample1CoreModule, AspNetBuilerplate.Sample1.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-03-17 14:46:36,266 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: AspNetBuilerplate.Sample1.Sample1ApplicationModule, AspNetBuilerplate.Sample1.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-03-17 14:46:36,266 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-03-17 14:46:36,267 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: AspNetBuilerplate.Sample1.Api.Sample1WebApiModule, AspNetBuilerplate.Sample1.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-03-17 14:46:36,267 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-03-17 14:46:36,267 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-03-17 14:46:36,267 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-03-17 14:46:36,267 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.SignalR.AbpWebSignalRModule, Abp.Web.SignalR, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-03-17 14:46:36,268 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-03-17 14:46:36,270 [1    ] Abp.Modules.AbpModuleManager             - 15 modules loaded.
+DEBUG 2017-03-17 14:46:37,121 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-03-17 14:46:37,121 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-03-17 14:46:37,121 [1    ] o.Configuration.LanguageManagementConfig - Converted Sample1 (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-03-17 14:46:37,121 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-03-17 14:46:37,680 [1    ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: AspNetBuilerplate.Sample1.EntityFramework.Sample1DbContext, AspNetBuilerplate.Sample1.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-03-17 14:46:38,406 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2017-03-17 14:46:38,412 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2017-03-17 14:46:38,414 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2017-03-17 14:46:38,415 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Sample1
+DEBUG 2017-03-17 14:46:38,416 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2017-03-17 14:46:38,519 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-03-17 14:46:38,587 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 8 classes define auto mapping attributes
+DEBUG 2017-03-17 14:46:38,587 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - AspNetBuilerplate.Sample1.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2017-03-17 14:46:38,590 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - AspNetBuilerplate.Sample1.Sessions.Dto.UserLoginInfoDto
+DEBUG 2017-03-17 14:46:38,590 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - AspNetBuilerplate.Sample1.Users.Dto.CreateUserInput
+DEBUG 2017-03-17 14:46:38,591 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - AspNetBuilerplate.Sample1.Users.Dto.UserListDto
+DEBUG 2017-03-17 14:46:38,591 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - AspNetBuilerplate.Sample1.Tasks.Dto.TaskListDto
+DEBUG 2017-03-17 14:46:38,591 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - AspNetBuilerplate.Sample1.MultiTenancy.Dto.CreateTenantInput
+DEBUG 2017-03-17 14:46:38,591 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - AspNetBuilerplate.Sample1.MultiTenancy.Dto.TenantListDto
+DEBUG 2017-03-17 14:46:38,591 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - AspNetBuilerplate.Sample1.Web.Models.Account.TenantSelectionViewModel+TenantInfo
+DEBUG 2017-03-17 14:46:40,459 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'AspNetBuilerplate.Sample1.Sessions.ISessionAppService' with service name 'app/session'.
+DEBUG 2017-03-17 14:46:40,460 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'AspNetBuilerplate.Sample1.Users.IUserAppService' with service name 'app/user'.
+DEBUG 2017-03-17 14:46:40,461 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'AspNetBuilerplate.Sample1.Roles.IRoleAppService' with service name 'app/role'.
+DEBUG 2017-03-17 14:46:40,462 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'AspNetBuilerplate.Sample1.MultiTenancy.ITenantAppService' with service name 'app/tenant'.
+WARN  2017-03-17 14:46:43,662 [9    ] Abp.Logging.LogHelper                    - Abp.Authorization.AbpAuthorizationException: Kullanýcý giriþi yapýlmamýþ!
+   at Abp.Authorization.AuthorizationHelper.<AuthorizeAsync>d__19.MoveNext() in D:\Halil\Github\aspnetboilerplate\src\Abp\Authorization\AuthorizationHelper.cs:line 42
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Abp.Authorization.AuthorizationHelper.<CheckPermissions>d__22.MoveNext() in D:\Halil\Github\aspnetboilerplate\src\Abp\Authorization\AuthorizationHelper.cs:line 100
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Abp.Authorization.AuthorizationHelper.<AuthorizeAsync>d__20.MoveNext() in D:\Halil\Github\aspnetboilerplate\src\Abp\Authorization\AuthorizationHelper.cs:line 67
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Nito.AsyncEx.AsyncContext.<>c__DisplayClass3.<Run>b__1(Task t)
+   at System.Threading.Tasks.ContinuationTaskFromTask.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Nito.AsyncEx.AsyncContext.Run(Func`1 action)
+   at Abp.Authorization.AuthorizationHelperExtensions.Authorize(IAuthorizationHelper authorizationHelper, MethodInfo methodInfo) in D:\Halil\Github\aspnetboilerplate\src\Abp\Authorization\AuthorizationHelperExtensions.cs:line 27
+   at Abp.Web.Mvc.Authorization.AbpMvcAuthorizeFilter.OnAuthorization(AuthorizationContext filterContext) in D:\Halil\Github\aspnetboilerplate\src\Abp.Web.Mvc\Web\Mvc\Authorization\AbpMvcAuthorizeFilter.cs:line 48
+Abp.Authorization.AbpAuthorizationException: Kullanýcý giriþi yapýlmamýþ!
+   at Abp.Authorization.AuthorizationHelper.<AuthorizeAsync>d__19.MoveNext() in D:\Halil\Github\aspnetboilerplate\src\Abp\Authorization\AuthorizationHelper.cs:line 42
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Abp.Authorization.AuthorizationHelper.<CheckPermissions>d__22.MoveNext() in D:\Halil\Github\aspnetboilerplate\src\Abp\Authorization\AuthorizationHelper.cs:line 100
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Abp.Authorization.AuthorizationHelper.<AuthorizeAsync>d__20.MoveNext() in D:\Halil\Github\aspnetboilerplate\src\Abp\Authorization\AuthorizationHelper.cs:line 67
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Nito.AsyncEx.AsyncContext.<>c__DisplayClass3.<Run>b__1(Task t)
+   at System.Threading.Tasks.ContinuationTaskFromTask.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Nito.AsyncEx.AsyncContext.Run(Func`1 action)
+   at Abp.Authorization.AuthorizationHelperExtensions.Authorize(IAuthorizationHelper authorizationHelper, MethodInfo methodInfo) in D:\Halil\Github\aspnetboilerplate\src\Abp\Authorization\AuthorizationHelperExtensions.cs:line 27
+   at Abp.Web.Mvc.Authorization.AbpMvcAuthorizeFilter.OnAuthorization(AuthorizationContext filterContext) in D:\Halil\Github\aspnetboilerplate\src\Abp.Web.Mvc\Web\Mvc\Authorization\AbpMvcAuthorizeFilter.cs:line 48
+DEBUG 2017-03-17 14:47:09,989 [11   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"aa385819-6bed-4333-87f3-d8528b185a0e","IpAddress":"::1","TenantId":null,"UserId":1,"ConnectTime":"2017-03-17T14:47:09.9810317+02:00","Properties":{}}
+DEBUG 2017-03-17 14:47:10,032 [11   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: aa385819-6bed-4333-87f3-d8528b185a0e

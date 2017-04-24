@@ -10,7 +10,8 @@ namespace AspNetBuilerplate.Sample1.EntityFramework
 {
     public class Sample1DbContext : AbpZeroDbContext<Tenant, Role, User>
     {
-        public DbSet<Task> Tasks { get; set; }
+        public virtual IDbSet<Task> Tasks { get; set; }
+        public virtual IDbSet<Person> People { get; set; }
 
         /* NOTE: 
          *   Setting "Default" to base class helps us when working migration commands on Package Manager Console.

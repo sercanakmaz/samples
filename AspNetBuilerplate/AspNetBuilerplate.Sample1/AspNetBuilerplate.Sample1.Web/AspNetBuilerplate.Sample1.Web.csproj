@@ -1255,7 +1255,6 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Sample1ControllerBase.cs" />
     <Compile Include="Controllers\Results\ChallengeResult.cs" />
-    <Compile Include="Controllers\TasksController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
