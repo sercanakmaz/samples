@@ -48,7 +48,7 @@ def train():
     myDetector.save()
 
 
-train()
+# train()
 
 testFileText = readFile("C:\\Users\\sercanakmaz\\Downloads\\enron1\\spam\\0061.2003-12-21.GP.spam.txt")
 
