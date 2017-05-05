@@ -5,51 +5,52 @@ import shutil
 import html2text
 import locale
 import codecs
+import re
 
-locale.getpreferredencoding(False)
-d = antispam.Detector("my_model.dat")
+myDetector = antispam.Detector("my_model.dat")
 
-def ExtractSubPayload (filename: object) -> object:
-	''' Extract the subject and payload from the .eml file.
+def readFile(filePath):
+    fp = codecs.open(filePath, encoding="utf8", errors='replace')
+    fileText = fp.read()
 
-	'''
-	if not os.path.exists(filename): # dest path doesnot exist
-		print("ERROR: input file does not exist:", filename)
-		os.exit(1)
+    fileText = fileText.replace("Subject", "")
+    fileText = fileText.replace("subject", "")
+    fileText = fileText.replace("to", "")
+    fileText = fileText.replace("cc", "")
+    fileText = fileText.replace("bcc", "")
+    fileText = fileText.replace("from", "")
 
-	fp = codecs.open(filename, encoding="utf8")
+    fileText = re.sub('[^0-9a-zA-Z-\ ]+', '', fileText)
 
-	msg = email.message_from_file(fp)
-	payload = msg.get_payload()
+    return fileText
 
-	if type(payload) == type(list()) :
-		payload = payload[0] # only use t,he first part of payload
+def train():
+    spamFolderPath = 'C:\\Users\\sercanakmaz\\Downloads\\enron3\\spam'
+    hamFolderPath = 'C:\\Users\\sercanakmaz\\Downloads\\enron3\\ham'
 
-	sub = msg.get('subject')
-	sub = str(sub)
+    spamFiles = os.listdir(spamFolderPath)
+    hamFiles = os.listdir(hamFolderPath)
 
-	if type(payload) != type('') :
-		try:
-			payload = payload.get_payload()
+    for file in spamFiles:
+        filePath = os.path.join(spamFolderPath, file)
 
-			if type(payload) == type(list()) :
-				payload = payload[0] # only use t,he first part of payload
-				payload = payload.get_payload()
+        fileText = readFile(filePath)
 
-			payload = html2text.html2text(payload)
-		except:
-			pass
+        myDetector.train(fileText, True)
 
-	return sub + payload
+    for file in hamFiles:
+        filePath = os.path.join(hamFolderPath, file)
 
-def ExtractBodyFromDir (srcdir):
-    files = os.listdir(srcdir)
+        fileText = readFile(filePath)
 
-    for file in files:
-        srcpath = os.path.join(srcdir, file)
-        body = ExtractSubPayload(srcpath)
+        myDetector.train(fileText, False)
 
-        print(body)
+    myDetector.save()
 
-ExtractBodyFromDir ('C:\\Users\\sercanakmaz\\Downloads\\CSDMC2010_SPAM\\TRAINING')
 
+train()
+
+testFileText = readFile("C:\\Users\\sercanakmaz\\Downloads\\enron1\\spam\\0061.2003-12-21.GP.spam.txt")
+
+print(myDetector.score(testFileText))
+print(myDetector.is_spam(testFileText))
