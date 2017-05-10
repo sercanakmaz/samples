@@ -88,7 +88,12 @@ new_age_var = np.where(titanic_test["Age"].isnull(),
                        28,
                        titanic_test["Age"])
 
+new_fare_var = np.where(titanic_test["Fare"].isnull(),
+                        0,
+                        titanic_test["Fare"])
+
 titanic_test["Age"] = new_age_var
+titanic_test["Fare"] = new_fare_var
 
 # Convert test variables to match model features
 encoded_sex_test = label_encoder.fit_transform(titanic_test["Sex"])
@@ -96,10 +101,12 @@ encoded_sex_test = label_encoder.fit_transform(titanic_test["Sex"])
 test_features = pd.DataFrame([encoded_sex_test,
                               titanic_test["Pclass"],
                               titanic_test["Age"],
-                              titanic_test["Fare"]]).T
+                              titanic_test["Fare"]])
 
-# mage test set predictions
-test_preds = tree_model.predict(X=test_features)
+test_features.fillna(0)
+
+# Make test set predictions
+test_preds = tree_model.predict(X=test_features.T)
 
 # Create a submission for Kaggle
 submission = pd.DataFrame({"PassengerId": titanic_test["PassengerId"],
