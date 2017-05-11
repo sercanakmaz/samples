@@ -1,9 +1,12 @@
+# Article: http://hamelg.blogspot.com.tr/2015/11/python-for-data-analysis-part-29.html
+
 import numpy as np
 import pandas as pd
 import os
 from sklearn import tree
 from sklearn import preprocessing
 from IPython.display import Image
+from sklearn.cross_validation import train_test_split
 
 titanic_train = pd.read_csv("train.csv")    # Read the data
 
@@ -115,3 +118,49 @@ submission = pd.DataFrame({"PassengerId": titanic_test["PassengerId"],
 # Save submission to CSV
 
 submission.to_csv("tutorial_dectree_submission.csv", index=False)
+
+v_train, v_test = train_test_split(titanic_train,
+                                   test_size=0.25,
+                                   random_state=1,
+                                   stratify=titanic_train["Survived"])
+
+# Training set size for validation
+print(v_train.shape)
+# Test set size for validation
+print(v_test.shape)
+
+from sklearn.cross_validation import KFold
+
+cv = KFold(n=len(titanic_train),    # Number of elements
+           n_folds=10,              # Desired number of cv folds
+           random_state=12)         # Set a random seed
+
+fold_accuracy = []
+
+titanic_train["Sex"] = encoded_sex
+
+for train_fold, valid_fold in cv:
+    train = titanic_train[train_fold] # Extract train data with cv indices
+    valid = titanic_train[valid_fold] # Extract valid data with cv indices
+
+    model = tree_model.fit(X=train[["Sex", "Pclass", "Age", "Fare"]],
+                           y= train["Survived"])
+    valid_acc = model.score(X = valid[["Sex", "Pclass", "Age", "Fare"]],
+                            y = valid["Survived"])
+    fold_accuracy.append(valid_acc)
+
+print("Accuracy per fold: ", fold_accuracy, "\n")
+print("Average accuracy: ", sum(fold_accuracy)/len(fold_accuracy))
+
+from sklearn.cross_validation import cross_val_score
+
+scores = cross_val_score(estimator= tree_model,     # Model to test
+                X= titanic_train[["Sex","Pclass",   # Train Data
+                                  "Age","Fare"]],
+                y = titanic_train["Survived"],      # Target variable
+                scoring = "accuracy",               # Scoring metric
+                cv=10)                              # Cross validation folds
+
+print("Accuracy per fold: ")
+print(scores)
+print("Average accuracy: ", scores.mean())
