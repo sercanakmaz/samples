@@ -1,6 +1,10 @@
-﻿using Castle.Windsor;
+﻿using Castle.DynamicProxy;
+using Castle.MicroKernel.Registration;
+using Castle.MicroKernel.SubSystems.Configuration;
+using Castle.Windsor;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,35 +17,52 @@ namespace CastleWindsor.Sample1
         {
             var container = new WindsorContainer();
 
-            container.Register(Castle.MicroKernel.Registration.Component.For<Main>());
-            container.Register(Castle.MicroKernel.Registration.Component.For<IDependency1>().ImplementedBy<Dependency1>());
+            container.Install(new InterceptorInstaller());
+            container.Install(new ManagerInstaller());
 
-            var mainThing = container.Resolve<Main>();
-            mainThing.DoSomething();
+            var manager = container.Resolve<IExampleManager>();
+
+            manager.ExampleMethod();
 
             Console.ReadKey();
         }
     }
-    public interface IDependency1
+    public interface IExampleManager
     {
-        object SomeObject { get; set; }
+        void ExampleMethod();
     }
-    public class Dependency1 : IDependency1
+    public class ExampleManager : IExampleManager
     {
-        public object SomeObject { get; set; }
-    }
-    public class Main
-    {
-        private IDependency1 object1;
-
-        public Main(IDependency1 dependency1)
+        public void ExampleMethod()
         {
-            object1 = dependency1;
+            Debug.WriteLine("Doing Work...");
         }
-
-        public void DoSomething()
+    }
+    public class ManagerInstaller : IWindsorInstaller
+    {
+        public void Install(IWindsorContainer container, IConfigurationStore store)
         {
-            object1.SomeObject = "Hello World";
+            container.Register(Classes.FromThisAssembly()
+                .Where(type => type.Name.EndsWith("Manager"))
+                .WithServiceDefaultInterfaces()
+                .Configure(c => c.LifestyleTransient().Interceptors<ExampleInterceptor>()));
+        }
+    }
+    public class ExampleInterceptor : IInterceptor
+    {
+        public void Intercept(IInvocation invocation)
+        {
+            Debug.WriteLine(string.Format("Before method: {0}", invocation.Method.Name));
+            invocation.Proceed();
+            Debug.WriteLine(string.Format("After method: {0}", invocation.Method.Name));
+        }
+    }
+    public class InterceptorInstaller : IWindsorInstaller
+    {
+        public void Install(Castle.Windsor.IWindsorContainer container, Castle.MicroKernel.SubSystems.Configuration.IConfigurationStore store)
+        {
+            container.Register(Component.For<ExampleInterceptor>()
+                                   .LifestyleTransient());
         }
     }
 }
