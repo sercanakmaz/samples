@@ -12,35 +12,16 @@ namespace SimpleInjector.Sample1.Core
 {
     public class MonitoringInterceptor : IInterceptor
     {
-        private static readonly MethodInfo handleAsyncMethodInfo = typeof(MonitoringInterceptor).GetMethod("HandleAsyncWithResult", BindingFlags.Instance | BindingFlags.NonPublic);
         public void Intercept(IInvocation invocation)
         {
             var watch = Stopwatch.StartNew();
             var methodInfo = invocation.GetConcreteMethod() as MethodInfo;
-            var methodDelegateType = GetMethodDelegateType(methodInfo);
             var parametersAsDictionary = GetMethodParameters(invocation, methodInfo);
             var handleErrorAttribute = GetHandleErrorAttribute(methodInfo);
 
             try
             {
-                switch (methodDelegateType)
-                {
-                    case MethodType.Synchronous:
-                        invocation.Proceed();
-                        break;
-                    case MethodType.AsyncAction:
-                    case MethodType.AsyncFunction:
-                        invocation.Proceed();
-
-                        ((Task)invocation.ReturnValue).ContinueWith((task) =>
-                        {
-                            HandleException(invocation, methodInfo, parametersAsDictionary, handleErrorAttribute, task.Exception);
-                        });
-
-                        break;
-                    default:
-                        break;
-                }
+                invocation.Proceed();
             }
             catch (Exception ex)
             {
@@ -77,15 +58,6 @@ namespace SimpleInjector.Sample1.Core
             Console.WriteLine("Parametreler: {0}", JsonConvert.SerializeObject(parametersAsDictionary));
         }
 
-        private MethodType GetMethodDelegateType(MethodInfo methodInfo)
-        {
-            var returnType = methodInfo.ReturnType;
-            if (returnType == typeof(Task))
-                return MethodType.AsyncAction;
-            if (returnType.IsGenericType && returnType.GetGenericTypeDefinition() == typeof(Task<>))
-                return MethodType.AsyncFunction;
-            return MethodType.Synchronous;
-        }
         private static Dictionary<string, object> GetMethodParameters(IInvocation invocation, System.Reflection.MethodInfo method)
         {
             var parametersAsDictionary = new Dictionary<string, object>();
@@ -109,12 +81,6 @@ namespace SimpleInjector.Sample1.Core
             }
 
             return handleErrorAttribute;
-        }
-        private enum MethodType
-        {
-            Synchronous,
-            AsyncAction,
-            AsyncFunction
         }
     }
 }

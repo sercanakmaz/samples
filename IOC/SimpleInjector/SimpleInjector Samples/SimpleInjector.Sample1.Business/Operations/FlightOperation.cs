@@ -10,7 +10,7 @@ namespace SimpleInjector.Sample1.Business.Operations
 {
     public class FlightOperation : IFlightOperation
     {
-        public async Task<BusinessResultBase<FlightResponse>> Search(FlightRequest request)
+        public  BusinessResultBase<FlightResponse> Search(FlightRequest request)
         {
             Thread.Sleep(1500);
             throw new NotImplementedException();
@@ -32,6 +32,6 @@ namespace SimpleInjector.Sample1.Business.Operations
 
     public interface IFlightOperation : IBusinessOperation
     {
-        Task<BusinessResultBase<FlightResponse>> Search(FlightRequest request);
+        BusinessResultBase<FlightResponse> Search(FlightRequest request);
     }
 }

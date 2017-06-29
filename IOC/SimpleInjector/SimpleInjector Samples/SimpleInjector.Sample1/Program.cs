@@ -12,17 +12,10 @@ namespace SimpleInjector.Sample1
         public static Container container = new Container();
         static void Main(string[] args)
         {
-            var task = MainAsync(args);
-
-            task.Wait();
-        }
-        static async Task MainAsync(string[] args)
-        {
             RegisterIOC();
-
             var operation = container.GetInstance<IFlightOperation>();
 
-            var result = await operation.Search(new FlightRequest
+            var result =  operation.Search(new FlightRequest
             {
                 Origin = "A",
                 Destination = "B"
@@ -35,7 +28,6 @@ namespace SimpleInjector.Sample1
                     Console.WriteLine(item.FlightNumber);
                 }
             }
-
             Console.ReadKey();
         }
 
