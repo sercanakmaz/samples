@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 // import createHistory from 'history/createBrowserHistory';
 
 import Archives from './Archives';
-import Featured from './Featured';
+import Featured from './Todos';
 import Settings from './Settings';
 import Footer from '../components/layout/Footer';
 import Nav from '../components/layout/Nav';
@@ -19,7 +19,6 @@ export default class Layout extends React.Component {
         return (
             <Router>
                 <div>
-                    
                     <Nav location={location}/>
                     <div className="container" style={containerStyle}>
                         <div className="row">

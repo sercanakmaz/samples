@@ -10,8 +10,8 @@ export default class Archives extends React.Component {
         const { date, filter } = query;
 
         return (
-            <div>
-                <div className="row">
+            <div className="row">
+                <div className="col-md-4">
                     <h1>Archives ({article})</h1>
                     <h4>date: {date}, filter: {filter}</h4>
                 </div>
