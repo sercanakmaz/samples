@@ -22,7 +22,7 @@ export function addTweet(id, text) {
     }
 }
 
-export function updateTweet(id, tweet) {
+export function updateTweet(id, text) {
     return {
         type: 'UPDATE_TWEET',
         payload: {
