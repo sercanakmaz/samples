@@ -1,0 +1,85 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageTargetFallback>$(PackageTargetFallback);portable-net45+win8+wp8+wpa81;</PackageTargetFallback>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <UserSecretsId>aspnet-ReactSeedProject.Sample1-9d965111-8dc7-44d0-953a-6e7125458440</UserSecretsId>
+    <PreBuildEvent></PreBuildEvent>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="wwwroot\app\1faaad354c7843acb688e5c2b14e67ba.jpg" />
+    <Content Include="wwwroot\app\448c34a56d699c29117adc64c43affeb.woff2" />
+    <Content Include="wwwroot\app\674f50d287a8c48dc19ba404d20fe713.eot" />
+    <Content Include="wwwroot\app\89889688147bd7575d6327160d64e760.svg" />
+    <Content Include="wwwroot\app\912ec66d7572ff821749319396470bde.svg" />
+    <Content Include="wwwroot\app\af7ae505a9eed503f8b8e6982036873e.woff2" />
+    <Content Include="wwwroot\app\b06871f281fee6b241d60582ae9369b9.ttf" />
+    <Content Include="wwwroot\app\bundle.js" />
+    <Content Include="wwwroot\app\c5a509acee8aab3a1f62e16ea1204ffc.png" />
+    <Content Include="wwwroot\app\e18bbf611f2a2e43afc071aa2f4e1512.ttf" />
+    <Content Include="wwwroot\app\ea2316224d45899c59bc285ba09dd920.png" />
+    <Content Include="wwwroot\app\f2f2de96e14a40255e93ab5fab29916b.jpg" />
+    <Content Include="wwwroot\app\f4769f9bdb7466be65088239c12046d1.eot" />
+    <Content Include="wwwroot\app\fa2772327f55d8198301fdb8bcfc8158.woff" />
+    <Content Include="wwwroot\app\fee66e712a8a08eef5805a46892932ad.woff" />
+    <Content Include="wwwroot\app\img\landing\avatar_all.png" />
+    <Content Include="wwwroot\app\img\landing\header_one.jpg" />
+    <Content Include="wwwroot\app\img\landing\header_two.jpg" />
+    <Content Include="wwwroot\app\img\landing\word_map.png" />
+    <Content Include="wwwroot\app\img\profile.jpg" />
+    <Content Include="wwwroot\app\img\profile_small.jpg" />
+    <Content Include="wwwroot\app\style.css" />
+    <Content Include="wwwroot\app\styles.css" />
+    <Content Include="wwwroot\app\styles\patterns\1.png" />
+    <Content Include="wwwroot\app\styles\patterns\2.png" />
+    <Content Include="wwwroot\app\styles\patterns\3.png" />
+    <Content Include="wwwroot\app\styles\patterns\4.png" />
+    <Content Include="wwwroot\app\styles\patterns\5.png" />
+    <Content Include="wwwroot\app\styles\patterns\6.png" />
+    <Content Include="wwwroot\app\styles\patterns\7.png" />
+    <Content Include="wwwroot\app\styles\patterns\congruent_pentagon.png" />
+    <Content Include="wwwroot\app\styles\patterns\header-profile-skin-1.png" />
+    <Content Include="wwwroot\app\styles\patterns\header-profile-skin-2.png" />
+    <Content Include="wwwroot\app\styles\patterns\header-profile-skin-3.png" />
+    <Content Include="wwwroot\app\styles\patterns\header-profile.png" />
+    <Content Include="wwwroot\app\styles\patterns\otis_redding.png" />
+    <Content Include="wwwroot\app\styles\patterns\shattered.png" />
+    <Content Include="wwwroot\app\styles\patterns\triangular.png" />
+    <Content Include="wwwroot\app\styles\site.css" />
+    <Content Include="wwwroot\app\styles\style.css" />
+    <Content Include="wwwroot\app\styles\style_custom.css" />
+    <Content Include="wwwroot\app\vendor.js" />
+    <Content Include="wwwroot\app\vendor\pace\pace.js" />
+    <Content Include="wwwroot\app\vendor\pace\pace.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore" Version="1.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Cookies" Version="1.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="1.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="1.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.1.3" />
+    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="1.1.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="1.1.2" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="1.1.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer.Design" Version="1.1.2" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="1.1.1" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="1.1.2" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="1.1.2" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="1.1.1" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="1.1.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="1.0.1" />
+    <DotNetCliToolReference Include="Microsoft.Extensions.SecretManager.Tools" Version="1.0.1" />
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.1" />
+  </ItemGroup>
+
+</Project>
