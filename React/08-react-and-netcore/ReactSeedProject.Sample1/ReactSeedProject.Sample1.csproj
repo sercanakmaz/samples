@@ -14,21 +14,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="wwwroot\app\1faaad354c7843acb688e5c2b14e67ba.jpg" />
-    <Content Include="wwwroot\app\448c34a56d699c29117adc64c43affeb.woff2" />
-    <Content Include="wwwroot\app\674f50d287a8c48dc19ba404d20fe713.eot" />
-    <Content Include="wwwroot\app\89889688147bd7575d6327160d64e760.svg" />
-    <Content Include="wwwroot\app\912ec66d7572ff821749319396470bde.svg" />
-    <Content Include="wwwroot\app\af7ae505a9eed503f8b8e6982036873e.woff2" />
-    <Content Include="wwwroot\app\b06871f281fee6b241d60582ae9369b9.ttf" />
     <Content Include="wwwroot\app\bundle.js" />
-    <Content Include="wwwroot\app\c5a509acee8aab3a1f62e16ea1204ffc.png" />
-    <Content Include="wwwroot\app\e18bbf611f2a2e43afc071aa2f4e1512.ttf" />
-    <Content Include="wwwroot\app\ea2316224d45899c59bc285ba09dd920.png" />
-    <Content Include="wwwroot\app\f2f2de96e14a40255e93ab5fab29916b.jpg" />
-    <Content Include="wwwroot\app\f4769f9bdb7466be65088239c12046d1.eot" />
-    <Content Include="wwwroot\app\fa2772327f55d8198301fdb8bcfc8158.woff" />
-    <Content Include="wwwroot\app\fee66e712a8a08eef5805a46892932ad.woff" />
     <Content Include="wwwroot\app\img\landing\avatar_all.png" />
     <Content Include="wwwroot\app\img\landing\header_one.jpg" />
     <Content Include="wwwroot\app\img\landing\header_two.jpg" />
