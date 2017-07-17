@@ -6,4 +6,4 @@ import {localeReducer} from "react-multilingual";
 export default combineReducers({
     home,
     locale: localeReducer("en", require("../locales/index").default)
-})	
+})	    
