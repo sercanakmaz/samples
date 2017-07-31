@@ -58,6 +58,11 @@ class App extends Component {
         text: 'PROFIT',
       }]
     };
+
+    for (var index = 0; index < this.state.cards1.length; index++) {
+      var element = this.state.cards1[index];
+      element["y"] = index;
+    }
   }
 
   moveCard(dragIndex, hoverIndex) {
@@ -69,6 +74,11 @@ class App extends Component {
 
     newState.cards1.splice(dragIndex, 1);
     newState.cards1.splice(hoverIndex, 0, dragCard);
+
+    for (var index = 0; index < newState.cards1.length; index++) {
+      var element = newState.cards1[index];
+      element.y = index;
+    }
 
     this.setState(newState);
   }

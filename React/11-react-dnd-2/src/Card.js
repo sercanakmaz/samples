@@ -18,7 +18,7 @@ export default class Card extends Component {
         const { style, item, isDragging } = this.props;
 
         return (
-            <div id={style ? item.id : null} style={{ ...defaultStyle, ...style }}>
+            <div id={item.id} style={{ ...defaultStyle, ...style }}>
                 {item.text}
             </div>
         );

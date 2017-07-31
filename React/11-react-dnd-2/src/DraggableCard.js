@@ -15,14 +15,14 @@ function getStyles(isDragging) {
 const cardSource = {
   beginDrag(props, monitor, component) {
     // dispatch to redux store that drag is started
-    const { item, x, y } = props;
-    const { id, title } = item;
+    const { item } = props;
+    const { id, y } = item;
     const { clientWidth, clientHeight } = findDOMNode(component);
 
-    return { id, title, item, x, y, clientWidth, clientHeight };
+    return { id, y, item, clientWidth, clientHeight };
   },
   endDrag(props, monitor) {
-    document.getElementById(monitor.getItem().id).style.display = 'block';
+    document.getElementById(props.item.id).style.display = 'block';
   },
   isDragging(props, monitor) {
     const isDragging = props.item && props.item.id === monitor.getItem().id;
@@ -34,9 +34,7 @@ const cardSource = {
 const OPTIONS = {
   arePropsEqual: function arePropsEqual(props, otherProps) {
     let isEqual = true;
-    if (props.item.id === otherProps.item.id &&
-      props.x === otherProps.x &&
-      props.y === otherProps.y
+    if (props.item.id === otherProps.item.id
     ) {
       isEqual = true;
     } else {

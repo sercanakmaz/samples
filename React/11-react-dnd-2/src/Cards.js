@@ -76,7 +76,7 @@ class Cards extends Component {
   }
 
   render() {
-    const { connectDropTarget, x, cards, isOver, canDrop } = this.props;
+    const { connectDropTarget, cards, isOver, canDrop } = this.props;
     const { placeholderIndex } = this.state;
 
     let isPlaceHold = false;
@@ -92,7 +92,7 @@ class Cards extends Component {
       }
       if (item !== undefined) {
         cardList.push(
-          <Card x={x} y={i}
+          <Card
             item={item}
             key={item.id}
           />
