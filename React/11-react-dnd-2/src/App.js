@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
-import Card from './Card';
+import Cards from './Cards';
+import './App.css';
 
 const style = {
   width: 400,
@@ -12,7 +13,29 @@ class App extends Component {
     super(props);
     this.moveCard = this.moveCard.bind(this);
     this.state = {
-      cards: [{
+      cards1: [{
+        id: 1,
+        text: 'Write a cool JS library',
+      }, {
+        id: 2,
+        text: 'Make it generic enough',
+      }, {
+        id: 3,
+        text: 'Write README',
+      }, {
+        id: 4,
+        text: 'Create some examples',
+      }, {
+        id: 5,
+        text: 'Spam in Twitter and IRC to promote it (note that this element is taller than the others)Spam in Twitter and IRC to promote it (note that this element is taller than the others)Spam in Twitter and IRC to promote it (note that this element is taller than the others)Spam in Twitter and IRC to promote it (note that this element is taller than the others) ',
+      }, {
+        id: 6,
+        text: '???',
+      }, {
+        id: 7,
+        text: 'PROFIT',
+      }],
+      cards2: [{
         id: 1,
         text: 'Write a cool JS library',
       }, {
@@ -33,7 +56,7 @@ class App extends Component {
       }, {
         id: 7,
         text: 'PROFIT',
-      }],
+      }]
     };
   }
 
@@ -42,28 +65,23 @@ class App extends Component {
 
     // const dragIndex = newState.cards.findIndex((item) => item.id == dragProps.id);
     // const hoverIndex = newState.cards.findIndex((item) => item.id == hoverProps.id);
-    const dragCard = newState.cards[dragIndex];
+    const dragCard = newState.cards1[dragIndex];
 
-    newState.cards.splice(dragIndex, 1);
-    newState.cards.splice(hoverIndex, 0, dragCard);
+    newState.cards1.splice(dragIndex, 1);
+    newState.cards1.splice(hoverIndex, 0, dragCard);
 
     this.setState(newState);
   }
 
   render() {
-    const { cards } = this.state;
+    const { cards1, cards2 } = this.state;
 
     return (
       <div style={style}>
-        {cards.map((card, i) => (
-          <Card
-            key={card.id}
-            index={i}
-            id={card.id}
-            text={card.text}
-            moveCard={this.moveCard}
-          />
-        ))}
+        <Cards
+          cards={cards1}
+          moveCard={this.moveCard}
+        />
       </div>
     );
   }

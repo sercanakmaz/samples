@@ -1,0 +1,7 @@
+.placeholder, .placeholder:hover{
+height: 18px;
+padding: 8px 16px;
+border: 1px dashed black;
+background-color: rgba(208,208,208,1);
+margin: 0 0 8px 0;
+}
