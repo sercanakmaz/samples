@@ -2,6 +2,7 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 using System.Collections.Generic;
+using System.Security.Claims;
 using IdentityServer4.Models;
 using IdentityServer4.Test;
 
@@ -14,7 +15,30 @@ namespace IdentityServer4.Sample1
         {
             return new List<ApiResource>
             {
-                new ApiResource("web", "Web")
+                new ApiResource
+                {
+                    Name = "web",
+                    DisplayName = "Web API",
+                    UserClaims =
+                    {
+                        "name",
+                        ClaimTypes.Name,
+                        ClaimTypes.Email
+                    },
+                    Scopes =
+                    {
+                        new Scope()
+                        {
+                            Name = "web.full_access",
+                            DisplayName = "Full access to Web API",
+                        },
+                        new Scope
+                        {
+                            Name = "web.read_only",
+                            DisplayName = "Read only access to Web API"
+                        }
+                    }
+                }
             };
         }
 
@@ -27,13 +51,21 @@ namespace IdentityServer4.Sample1
                 new Client
                 {
                     ClientId = "webapp",
-                    AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
-
-                    ClientSecrets =
+                     ClientSecrets =
                     {
                         new Secret("secret".Sha256())
                     },
-                    AllowedScopes = { "web" }
+                    AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
+                    AllowOfflineAccess = true,
+
+                    AllowedScopes =
+                    {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        "custom.profile",
+                        "web",
+                        "web.read_only"
+                    }
+
                 }
             };
         }
@@ -46,13 +78,25 @@ namespace IdentityServer4.Sample1
                 {
                     SubjectId = "1",
                     Username = "alice",
-                    Password = "password"
+                    Password = "password",
+                    Claims = new List<Claim>()
+                    {
+                        new Claim("name", "1"),
+                        new Claim(System.Security.Claims.ClaimTypes.Name, "alice"),
+                        new Claim(System.Security.Claims.ClaimTypes.Email, "alice@domain.com")
+                    }
                 },
                 new TestUser
                 {
                     SubjectId = "2",
                     Username = "bob",
-                    Password = "password"
+                    Password = "password",
+                    Claims = new List<Claim>()
+                    {
+                        new Claim("name", "2"),
+                        new Claim(System.Security.Claims.ClaimTypes.Name, "bob"),
+                        new Claim(System.Security.Claims.ClaimTypes.Email, "bob@domain.com")
+                    }
                 }
             };
         }

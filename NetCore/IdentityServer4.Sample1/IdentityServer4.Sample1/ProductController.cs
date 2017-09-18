@@ -1,9 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace IdentityServer4.Sample1
@@ -16,7 +11,8 @@ namespace IdentityServer4.Sample1
             return new ProductDto
             {
                 Id = 1,
-                Name = "Test"
+                Name = "Test",
+                UserName = this.User?.Identity?.Name
             };
         }
     }
@@ -25,5 +21,6 @@ namespace IdentityServer4.Sample1
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public string UserName { get; set; }
     }
 }
