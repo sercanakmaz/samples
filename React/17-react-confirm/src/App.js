@@ -1,18 +1,29 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+import confirm from './confirm'
 
 class App extends Component {
+  onDeleteClick() {
+    confirm('Are you sure')
+    .then(
+      (result) => {
+        // `proceed` callback
+        console.log('proceed called');
+        console.log(result);
+      },
+      (result) => {
+        // `cancel` callback
+        console.log('cancel called');
+        console.log(result)
+      }
+    )
+  }
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <button onClick={this.onDeleteClick.bind(this)} >
+          Delete
+        </button>
       </div>
     );
   }
