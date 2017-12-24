@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DotNetCore.Boilerplate.Core\DotNetCore.Boilerplate.Core.csproj" />
+    <ProjectReference Include="..\DotNetCore.Boilerplate.Data.Dapper\DotNetCore.Boilerplate.Data.Dapper.csproj" />
+    <ProjectReference Include="..\DotNetCore.Boilerplate.Data.Redis\DotNetCore.Boilerplate.Data.Redis.csproj" />
+    <ProjectReference Include="..\DotNetCore.Boilerplate.Domain.Entities\DotNetCore.Boilerplate.Domain.Entities.csproj" />
+    <ProjectReference Include="..\DotNetCore.Boilerplate.Domain\DotNetCore.Boilerplate.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
