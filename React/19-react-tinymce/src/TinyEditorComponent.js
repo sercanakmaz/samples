@@ -4,17 +4,17 @@ import 'tinymce/themes/modern';
 import 'tinymce/plugins/wordcount';
 import 'tinymce/plugins/table';
 
-import './assets/skins/lightgray/skin.min.css'
-
 class TinyEditorComponent extends Component {
   constructor() {
     super();
     this.state = { editor: null };
   }
   componentDidMount() {
+    console.log(process.env.PUBLIC_URL)
     tinymce.init({
       selector: `#${this.props.id}`,
-      skin_url: `${process.env.PUBLIC_URL}/skins/lightgray`,
+      theme: 'modern',
+      skin_url: "http://localhost:18077/static/skins/lightgray/",
       plugins: 'wordcount table',
       setup: editor => {
         this.setState({ editor });
