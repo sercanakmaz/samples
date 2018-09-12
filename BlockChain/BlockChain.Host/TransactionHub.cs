@@ -7,9 +7,9 @@ namespace BlockChain.Host
 {
     public class TransactionHub : Microsoft.AspNetCore.SignalR.Hub
     {
-        public async Task SendMessage(string message)
+        public async Task Add(string user, string message)
         {
-            await Clients.All.SendCoreAsync("ReceiveMessage", new object[] { message });
+            await Clients.All.SendCoreAsync("Listen", new object[] { user, message });
         }
     }
 }
